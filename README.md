@@ -16,7 +16,7 @@ npm install
 Para enviar la orden se debera iniciar el servicio agregando el comando **orden** seguido de un numero de orden adicional, este numero se enviara al servicio de restaurante para poder ser procesado
 
 ```
-node __dirname/cliente/cliente orden NO_ORDER
+node server/cliente/cliente orden NO_ORDER
 ```
 Al finalizar la entrega, la orden sera enviada por el restaurante al cliente como parte de la confirmacion de entrega a la ruta __/client__ la cual se encargara de concluir el proceso.
 
@@ -33,6 +33,10 @@ app.post('/client', (req, res) => {
 ```
 
 ### **RESTAURANTE**
+```
+node server/restaurant/restaurant
+```
+
 El servicio de restaurante, obtendra las ordenes de los clientes, las procesara y luego solicitara al servicio de entregas el siguiente paso en el proceso de la orden.
 
 ```
@@ -67,6 +71,9 @@ app.post('/restaurant-c', (req, res) => {
 ```
 
 ### **ENTREGA**
+```
+node server/delivery/delivery
+```
 El servicio de entrega **(DELIVERY)** se encarga de obtener la orden del restaurante y realizar el proceso de entrega al cliente, al concluir este proceso de entrega, notificara al servicio de RESTAURANTE que la entrga se realizo de manera exitosa para que el restaurante continue con el proceso final de la orden.
 
 ```
